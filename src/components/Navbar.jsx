@@ -24,6 +24,7 @@ export default function Navbar() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const logout = useAuthStore((state) => state.logout);
   const isOrganizer = user?.role === "ORGANIZER";
+  const isCustomer = isAuthenticated && user?.role === "CUSTOMER";
   const dashboardPath = isOrganizer
     ? "/organizer/dashboard"
     : "/customer/dashboard";
@@ -112,7 +113,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             {isOrganizer && <ThemeToggle />}
-            {!isOrganizer && (searchOpen ? (
+            {isCustomer && (searchOpen ? (
               <form
                 onSubmit={handleSearch}
                 className="flex items-center rounded-lg border border-slate-200 bg-white px-2 focus-within:border-indigo-400"
