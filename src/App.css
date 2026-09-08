@@ -1,0 +1,105 @@
+[data-organizer-theme="quiet"] {
+	color: #e2e8f0;
+	background-color: #0f172a;
+}
+
+[data-organizer-theme="quiet"] header {
+	border-color: #334155;
+	background-color: rgb(15 23 42 / 92%);
+}
+
+[data-organizer-theme="quiet"] header .text-slate-950,
+[data-organizer-theme="quiet"] header .text-slate-900,
+[data-organizer-theme="quiet"] header .text-slate-800,
+[data-organizer-theme="quiet"] header .text-slate-700,
+[data-organizer-theme="quiet"] header .text-slate-600,
+[data-organizer-theme="quiet"] header .text-slate-500 {
+	color: #cbd5e1;
+}
+
+[data-organizer-theme="quiet"] header .bg-white,
+[data-organizer-theme="quiet"] header form {
+	background-color: #1e293b;
+}
+
+[data-organizer-theme="quiet"] header .bg-indigo-50 {
+	background-color: #312e81;
+	color: #e0e7ff;
+}
+
+[data-organizer-theme="quiet"] header .bg-indigo-100 {
+	background-color: #3730a3;
+	color: #e0e7ff;
+}
+
+[data-organizer-theme="quiet"] header .hover\:bg-slate-50:hover,
+[data-organizer-theme="quiet"] header .hover\:bg-slate-100:hover {
+	background-color: #273449;
+}
+
+[data-organizer-theme="quiet"] footer {
+	border-color: #334155;
+}
+
+[data-organizer-theme="quiet"] .bg-white {
+	background-color: #1e293b;
+}
+
+[data-organizer-theme="quiet"] .bg-slate-50 {
+	background-color: #172033;
+}
+
+[data-organizer-theme="quiet"] .bg-slate-100 {
+	background-color: #273449;
+}
+
+[data-organizer-theme="quiet"] .bg-indigo-50 {
+	background-color: #312e81;
+}
+
+[data-organizer-theme="quiet"] .text-indigo-700 {
+	color: #c7d2fe;
+}
+
+[data-organizer-theme="quiet"] .border-slate-100,
+[data-organizer-theme="quiet"] .border-slate-200 {
+	border-color: #334155;
+}
+
+[data-organizer-theme="quiet"] .border-t {
+	border-color: #334155;
+}
+
+[data-organizer-theme="quiet"] .text-slate-950,
+[data-organizer-theme="quiet"] .text-slate-900 {
+	color: #f8fafc;
+}
+
+[data-organizer-theme="quiet"] .text-slate-800,
+[data-organizer-theme="quiet"] .text-slate-700,
+[data-organizer-theme="quiet"] .text-slate-600 {
+	color: #cbd5e1;
+}
+
+[data-organizer-theme="quiet"] .text-slate-500,
+[data-organizer-theme="quiet"] .text-slate-400 {
+	color: #94a3b8;
+}
+
+[data-organizer-theme="quiet"] input,
+[data-organizer-theme="quiet"] select,
+[data-organizer-theme="quiet"] textarea {
+	border-color: #475569;
+	background-color: #0f172a;
+	color: #f8fafc;
+}
+
+[data-organizer-theme="quiet"] input::placeholder,
+[data-organizer-theme="quiet"] textarea::placeholder {
+	color: #64748b;
+}
+
+[data-organizer-theme="quiet"] .shadow-sm {
+	box-shadow: 0 8px 24px rgb(2 6 23 / 24%);
+}
+
