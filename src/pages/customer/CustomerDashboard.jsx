@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Search, Ticket } from "lucide-react";
+import { Ticket } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { getEvents } from "../../services/eventService";
@@ -122,7 +122,7 @@ export default function CustomerDashboard() {
         </section>
 
         {!loading && !error && featuredEvents.length > 0 && (
-          <EventSection
+          <CustomerDashboardEventSection
             eyebrow="Featured"
             title="Don't miss these"
             events={featuredEvents}
