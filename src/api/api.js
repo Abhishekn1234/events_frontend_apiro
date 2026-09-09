@@ -1,8 +1,13 @@
 import axios from "axios";
 import useAuthStore from "../store/auth";
 
+const apiBaseUrl = (
+    import.meta.env.VITE_API_URL ||
+    "https://events-backend-apiro.onrender.com/api"
+).replace(/\/$/, "");
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: apiBaseUrl,
     headers: {
         "Content-Type": "application/json",
     },
