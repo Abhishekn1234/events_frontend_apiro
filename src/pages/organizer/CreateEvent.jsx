@@ -13,6 +13,7 @@ import {
 } from "../../components/common/ui";
 import { EVENT_CATEGORIES, getMinimumDateTime, validateEvent } from "../../utils/validation";
 import { useOrganizerTheme } from "../../context/OrganizerThemeContext";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 const initialForm = {
   title: "",
@@ -60,7 +61,7 @@ export default function CreateEvent() {
       toast.success("Event created successfully");
       navigate("/organizer/events");
     } catch (error) {
-      const message = error.response?.data?.message || "Unable to create event.";
+      const message = getApiErrorMessage(error, MESSAGES.events.createFailed);
       if (error.response?.status === 409) {
         if (message.toLowerCase().includes("title")) setTitleError(message);
         if (message.toLowerCase().includes("date")) setDateError(message);

@@ -3,9 +3,12 @@ import { Search, Ticket } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { getEvents } from "../../services/eventService";
-import EventCard from "../../components/customer/EventCard";
 
-const categories = ["All", "Music", "Tech", "Workshop", "Sports", "Other"];
+import { CustomerDashboardEventSection, CustomerDashboardHeroStat, CustomerDashboardMessage } from "../../components/customer/CustomerDashboard";
+import { categories } from "../../data/categories";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
+
+
 
 export default function CustomerDashboard() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,8 +36,7 @@ export default function CustomerDashboard() {
       setEvents(data.events || data);
     } catch (err) {
       if (requestId !== requestSequence.current) return;
-      const message =
-        err.response?.data?.message || "Unable to load events. Please try again.";
+      const message = getApiErrorMessage(err, MESSAGES.events.loadFailed);
       setError(message);
       toast.error(message);
     } finally {
@@ -76,9 +78,9 @@ export default function CustomerDashboard() {
             </p>
             
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-3 sm:mt-12 sm:gap-6">
-              <HeroStat value={loading ? "-" : events.length} label="Events" />
-              <HeroStat value="5" label="Categories" />
-              <HeroStat value="24/7" label="Booking" />
+              <CustomerDashboardHeroStat value={loading ? "-" : events.length} label="Events" />
+              <CustomerDashboardHeroStat value="5" label="Categories" />
+              <CustomerDashboardHeroStat value="24/7" label="Booking" />
             </div>
           </div>
         </div>
@@ -139,15 +141,15 @@ export default function CustomerDashboard() {
         )}
 
         {!loading && error && (
-          <Message
-            title="Unable to load events"
+          <CustomerDashboardMessage
+            title={MESSAGES.errors.loadEventsTitle}
             message={error}
             action={fetchEvents}
           />
         )}
 
         {!loading && !error && events.length === 0 && (
-          <Message
+          <CustomerDashboardMessage
             title="No events found"
             message="Try another search term or select a different category."
             action={clearFilters}
@@ -156,7 +158,7 @@ export default function CustomerDashboard() {
         )}
 
         {!loading && !error && events.length > featuredEvents.length && (
-          <EventSection
+          <CustomerDashboardEventSection
             eyebrow="More to explore"
             title="All upcoming events"
             events={events.slice(featuredEvents.length)}
@@ -167,46 +169,3 @@ export default function CustomerDashboard() {
   );
 }
 
-function HeroStat({ value, label }) {
-  return (
-    <div>
-      <p className="text-2xl font-bold text-white">{value}</p>
-      <p className="mt-1 text-sm text-slate-400">{label}</p>
-    </div>
-  );
-}
-
-function EventSection({ eyebrow, title, events }) {
-  return (
-    <section className="mt-14">
-      <p className="text-sm font-bold uppercase tracking-wider text-indigo-600">
-        {eyebrow}
-      </p>
-      <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
-        {title}
-      </h2>
-      <div className="mt-7 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {events.map((event) => (
-          <EventCard key={event._id} event={event} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Message({ title, message, action, label = "Try again" }) {
-  return (
-    <div className="mt-8 rounded-2xl border border-slate-200 bg-white px-6 py-16 text-center">
-      <Search size={28} className="mx-auto text-indigo-600" />
-      <h3 className="mt-5 text-xl font-bold text-slate-900">{title}</h3>
-      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">{message}</p>
-      <button
-        type="button"
-        onClick={action}
-        className="mt-5 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700"
-      >
-        {label}
-      </button>
-    </div>
-  );
-}

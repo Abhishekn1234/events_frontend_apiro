@@ -19,6 +19,7 @@ import {
 } from "../../components/common/ui";
 import OrganizerEventCard from "../../components/organizer/OrganizerEventCard";
 import { useOrganizerTheme } from "../../context/OrganizerThemeContext";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 const money = (value) =>
   Number(value || 0).toLocaleString("en-IN", {
@@ -38,7 +39,7 @@ export default function OrganizerDashboard() {
     getMyEvents()
       .then((data) => setEvents(data.events || data || []))
       .catch((requestError) => {
-        const message = requestError.response?.data?.message || "Unable to load your events.";
+        const message = getApiErrorMessage(requestError, MESSAGES.events.organizerLoadFailed);
         setError(message);
         toast.error(message);
       })
@@ -86,9 +87,9 @@ export default function OrganizerDashboard() {
           <LoadingState />
         ) : error ? (
           <ErrorState
-            title="Unable to load your dashboard"
+            title={MESSAGES.errors.loadDashboardTitle}
             message={error}
-            action={<button type="button" onClick={() => window.location.reload()} className="rounded-lg bg-red-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-red-700">Try again</button>}
+            action={<button type="button" onClick={() => window.location.reload()} className="rounded-lg bg-red-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-red-700">{MESSAGES.actions.retry}</button>}
           />
         ) : (
           <>

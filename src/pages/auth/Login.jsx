@@ -19,6 +19,7 @@ import {
   SubmitButton,
 } from "../../components/common/ui";
 import { validateLogin } from "../../utils/validation";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -66,8 +67,7 @@ const Login = () => {
       }
     } catch (error) {
       toast.error(
-        error.response?.data?.message ||
-          "Invalid email or password"
+        getApiErrorMessage(error, MESSAGES.auth.loginFailed)
       );
     } finally {
       setLoading(false);
@@ -131,7 +131,10 @@ const Login = () => {
 
         <div className="w-full max-w-md">
 
-          <div className="flex lg:hidden justify-center items-center gap-2 mb-10">
+          <Link
+            to="/"
+            className="flex lg:hidden justify-center items-center gap-2 mb-10"
+          >
             <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
               <CalendarDays size={21} />
             </div>
@@ -139,7 +142,7 @@ const Login = () => {
             <span className="text-2xl font-bold">
               Evently
             </span>
-          </div>
+          </Link>
 
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-slate-900">

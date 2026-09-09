@@ -6,6 +6,9 @@ import { getEventById } from "../../services/eventService";
 import { bookEvent } from "../../services/bookingService";
 import EventOverview from "../../components/customer/EventOverview";
 import BookingPanel from "../../components/customer/BookingPanel";
+import { CommonLoading } from "../../components/common/loading";
+import { Unavailable } from "../../components/common/unavailable";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 export default function EventDetails() {
   const { id } = useParams();
@@ -23,8 +26,7 @@ export default function EventDetails() {
       const data = await getEventById(id);
       setEvent(data.event || data);
     } catch (err) {
-      const message =
-        err.response?.data?.message || "Unable to load event details.";
+      const message = getApiErrorMessage(err, MESSAGES.events.detailsLoadFailed);
       setError(message);
       toast.error(message);
     } finally {
@@ -39,29 +41,27 @@ export default function EventDetails() {
   const book = async () => {
     if (!event) return;
     if (!Number.isInteger(tickets) || tickets < 1) {
-      return toast.error("Choose at least one ticket.");
+      return toast.error(MESSAGES.bookings.chooseTicket);
     }
     if (event.availableTickets <= 0)
-      return toast.error("This event is sold out.");
+      return toast.error(MESSAGES.bookings.soldOut);
     if (tickets > event.availableTickets)
-      return toast.error("Not enough tickets available.");
+      return toast.error(MESSAGES.bookings.insufficientTickets);
     
     try {
       setBooking(true);
       await bookEvent(event._id, tickets);
-      toast.success("Booking confirmed successfully!");
+      toast.success(MESSAGES.bookings.confirmed);
       navigate("/customer/my-bookings");
     } catch (err) {
-      toast.error(
-        err.response?.data?.message || "Booking failed. Please try again."
-      );
+      toast.error(getApiErrorMessage(err, MESSAGES.bookings.bookingFailed));
       fetchEvent();
     } finally {
       setBooking(false);
     }
   };
 
-  if (loading) return <Loading />;
+  if (loading) return <CommonLoading />;
   if (error || !event) return <Unavailable message={error} />;
 
   return (
@@ -95,45 +95,4 @@ export default function EventDetails() {
   );
 }
 
-function Loading() {
-  return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="h-6 w-32 animate-pulse rounded bg-slate-200" />
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(20rem,1fr)]">
-          <div className="h-125 animate-pulse rounded-3xl bg-slate-200" />
-          <div className="space-y-5">
-            <div className="h-10 animate-pulse rounded bg-slate-200" />
-            <div className="h-24 animate-pulse rounded bg-slate-200" />
-            <div className="h-48 animate-pulse rounded bg-slate-200" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-function Unavailable({ message }) {
-  return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-50">
-          <Ticket className="text-red-500" size={28} />
-        </div>
-        <h1 className="mt-5 text-2xl font-bold text-slate-900">
-          Event unavailable
-        </h1>
-        <p className="mt-2 text-slate-500">
-          {message || "We couldn't find this event."}
-        </p>
-        <Link
-          to="/customer/dashboard"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white hover:bg-indigo-700"
-        >
-          <ArrowLeft size={17} />
-          Back to events
-        </Link>
-      </div>
-    </div>
-  );
-}

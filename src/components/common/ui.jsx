@@ -1,5 +1,6 @@
 import { Eye, EyeOff, LoaderCircle } from "lucide-react";
 import { useState } from "react";
+import { MESSAGES } from "../../constants/messages";
 
 const inputClass =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 disabled:cursor-not-allowed disabled:bg-slate-50";
@@ -197,7 +198,7 @@ export function PageLoader() {
   );
 }
 
-export function ErrorState({ title = "Unable to load data", message, action }) {
+export function ErrorState({ title = MESSAGES.events.loadFailed, message, action }) {
   return (
     <div className="rounded-2xl border border-red-200 bg-red-50 px-6 py-14 text-center">
       <p className="text-lg font-bold text-red-900">{title}</p>

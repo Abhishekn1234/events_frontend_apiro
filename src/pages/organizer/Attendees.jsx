@@ -10,6 +10,7 @@ import {
   PageHeader,
   StatusBadge,
 } from "../../components/common/ui";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 export default function Attendees() {
   const { theme } = useOrganizerTheme();
@@ -32,7 +33,7 @@ export default function Attendees() {
       })
       .catch((error) =>
         toast.error(
-          error.response?.data?.message || "Unable to load events."
+          getApiErrorMessage(error, MESSAGES.events.organizerLoadFailed)
         )
       )
       .finally(() => setLoading(false));
@@ -48,7 +49,7 @@ export default function Attendees() {
       })
       .catch((error) =>
         toast.error(
-          error.response?.data?.message || "Unable to load attendees."
+          getApiErrorMessage(error, MESSAGES.events.attendeesLoadFailed)
         )
       )
       .finally(() => setLoading(false));

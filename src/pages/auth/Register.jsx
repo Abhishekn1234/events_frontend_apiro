@@ -21,6 +21,7 @@ import {
   SubmitButton,
 } from "../../components/common/ui";
 import { validateRegistration } from "../../utils/validation";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -71,8 +72,7 @@ const Register = () => {
       }
     } catch (error) {
       toast.error(
-        error.response?.data?.message ||
-          "Registration failed"
+        getApiErrorMessage(error, MESSAGES.auth.registrationFailed)
       );
     } finally {
       setLoading(false);
@@ -150,7 +150,10 @@ const Register = () => {
 
         <div className="w-full max-w-md">
 
-          <div className="flex lg:hidden justify-center items-center gap-2 mb-8">
+          <Link
+            to="/"
+            className="flex lg:hidden justify-center items-center gap-2 mb-8"
+          >
             <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
               <CalendarDays size={21} />
             </div>
@@ -158,7 +161,7 @@ const Register = () => {
             <span className="text-2xl font-bold">
               Evently
             </span>
-          </div>
+          </Link>
 
           <div className="mb-7">
             <h2 className="text-3xl font-bold text-slate-900">

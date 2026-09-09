@@ -6,6 +6,7 @@ import { getMyEvents } from "../../services/eventService";
 import { useOrganizerTheme } from "../../context/OrganizerThemeContext";
 import { EmptyState, ErrorState, LoadingState, PageHeader } from "../../components/common/ui";
 import OrganizerEventCard from "../../components/organizer/OrganizerEventCard";
+import { getApiErrorMessage, MESSAGES } from "../../constants/messages";
 
 export default function MyEvents() {
   const { theme } = useOrganizerTheme();
@@ -18,7 +19,7 @@ export default function MyEvents() {
     getMyEvents()
       .then((data) => setEvents(data.events || data || []))
       .catch((requestError) => {
-        const message = requestError.response?.data?.message || "Unable to load your events.";
+        const message = getApiErrorMessage(requestError, MESSAGES.events.organizerLoadFailed);
         setError(message);
         toast.error(message);
       })
@@ -50,9 +51,9 @@ export default function MyEvents() {
         <LoadingState />
       ) : error ? (
         <ErrorState
-          title="Unable to load your events"
+          title={MESSAGES.errors.loadOrganizerEventsTitle}
           message={error}
-          action={<button type="button" onClick={() => window.location.reload()} className="rounded-lg bg-red-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-red-700">Try again</button>}
+          action={<button type="button" onClick={() => window.location.reload()} className="rounded-lg bg-red-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-red-700">{MESSAGES.actions.retry}</button>}
         />
       ) : events.length ? (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
