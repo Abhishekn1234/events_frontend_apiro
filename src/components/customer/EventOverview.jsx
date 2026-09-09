@@ -18,7 +18,7 @@ export default function EventOverview({ event }) {
         <span className="rounded-full bg-white/15 px-4 py-2 text-xs font-bold">
           {event.category}
         </span>
-        <h1 className="mt-12 max-w-3xl break-words text-3xl font-black sm:mt-16 sm:text-5xl">
+        <h1 className="mt-12 max-w-3xl wrap-break-word text-3xl font-black sm:mt-16 sm:text-5xl">
           {event.title}
         </h1>
       </div>
