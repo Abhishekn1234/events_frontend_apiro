@@ -51,6 +51,8 @@ Confirmed guests are shown with their name, email, ticket count, and booking sta
 
 The frontend includes public home, login, and registration views, customer dashboard and booking views, event details, and protected organizer routes for dashboards, event creation, event management, and attendees.
 
+The footer is intentionally minimal: it keeps the Evently home link, support email, and product message while removing duplicate discovery and organizer links.
+
 ## Responsive Design
 
 The interface adapts across mobile, tablet, and desktop screens. Navigation becomes a mobile menu, grids stack naturally, forms remain comfortable to use, and long event information stays readable.
