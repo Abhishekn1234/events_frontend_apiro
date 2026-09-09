@@ -1,5 +1,5 @@
 
-import api from "./api";
+import api from "../api/api";
 
 
 export const bookEvent = async (eventId, requestedTickets) => {

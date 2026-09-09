@@ -1,65 +1,6 @@
 # Evently Frontend
 
-## Live Preview And Repositories
-
-- [Open the live frontend](https://events-frontend-apiro.vercel.app/)
-- [Open the live backend API](https://events-backend-apiro.onrender.com/)
-- [Frontend repository](https://github.com/Abhishekn1234/events_frontend_apiro)
-- [Backend repository](https://github.com/Abhishekn1234/events_backend_apiro)
-
-## The Evently Experience
-
-The frontend is the customer and organizer experience for discovering events, reserving tickets, and managing the moments that bring people together.
-
-## Customer Preview
-
-### Home
-
-A welcoming starting point introduces the Evently experience and leads customers into the event collection.
-
-### Discover Events
-
-Customers can scan upcoming events, search by name, filter by category, and quickly understand which experiences still have tickets available.
-
-### Event Details
-
-Each event has a focused detail view with the essentials: description, date, time, location, ticket price, availability, and an easy ticket quantity selector.
-
-### My Bookings
-
-Confirmed reservations are presented like a personal ticket wallet. Customers can see booking status, event information, ticket totals, payment amount, and a direct path back to the event.
-
-## Organizer Preview
-
-### Dashboard
-
-Organizers get a quick view of published events, tickets sold, revenue, fill rate, and upcoming activity.
-
-### Create An Event
-
-A guided form collects the event title, description, category, date, location, ticket price, and inventory before publishing.
-
-### Manage Events
-
-Organizers can review their published events, follow performance, and open the guest list for any event.
-
-### Attendees
-
-Confirmed guests are shown with their name, email, ticket count, and booking status.
-
-## Responsive By Default
-
-The interface is designed for compact mobile screens as well as wide desktop displays. Navigation becomes a mobile menu, content grids stack naturally, forms remain comfortable to use, and long event information stays readable.
-
-## Visual Language
-
-Evently uses a calm slate foundation, confident indigo actions, clear status colors, generous spacing, and focused cards that help users scan and act without friction.
-
-## Reliability
-
-Customers and organizers receive clear, consistent messages when an action needs attention or a service is temporarily unavailable. Specific validation feedback remains visible when it helps the user correct a form.# Evently Frontend
-
-## Live Preview And Repository
+## Live Preview
 
 - [Open the live frontend](https://events-frontend-apiro.vercel.app/)
 - [Open the live backend API](https://events-backend-apiro.onrender.com/)
@@ -68,173 +9,52 @@ Customers and organizers receive clear, consistent messages when an action needs
 
 ## The Evently Experience
 
-# Evently Frontend
+The frontend gives customers a focused way to find events and reserve tickets, while organizers get a practical workspace for publishing and managing their events.
 
-## Live Preview And Repository
-
-- [Open the live frontend](https://events-frontend-apiro.vercel.app/)
-- [Open the live backend API](https://events-backend-apiro.onrender.com/)
-- [View the frontend repository](https://github.com/Abhishekn1234/events_frontend_apiro)
-- [View the backend repository](https://github.com/Abhishekn1234/events_backend_apiro)
-
-## The Evently Experience
-
-The frontend is the customer and organizer experience for discovering events, reserving tickets, and managing the moments that bring people together.
-
-## Customer Preview
+## Customer Views
 
 ### Home
 
-A welcoming starting point introduces the Evently experience and leads customers into the event collection.
+A welcoming public landing page introduces Evently and leads visitors into event discovery.
 
-### Discover Events
+### Event Discovery
 
-Customers can scan upcoming events, search by name, filter by category, and quickly understand which experiences still have tickets available.
+Customers can browse upcoming events, search by name, filter by category, and see remaining ticket counts.
 
 ### Event Details
 
-Each event has a focused detail view with the essentials: description, date, time, location, ticket price, availability, and an easy ticket quantity selector.
+The detail view brings together the event description, date, time, location, ticket price, availability, and ticket quantity controls.
 
 ### My Bookings
 
-Confirmed reservations are presented like a personal ticket wallet. Customers can see booking status, event information, ticket totals, payment amount, and a direct path back to the event.
+Confirmed reservations are presented as a personal ticket wallet with booking status, event information, ticket totals, payment amount, and a direct event link.
 
-## Organizer Preview
+## Organizer Views
 
 ### Dashboard
 
-Organizers get a quick view of published events, tickets sold, revenue, fill rate, and upcoming activity.
+Organizers can review event totals, tickets sold, revenue, fill rate, and upcoming activity.
 
-### Create An Event
+### Create Event
 
-A guided form collects the event title, description, category, date, location, ticket price, and inventory before publishing.
+A guided form collects the title, description, category, date, location, ticket price, and ticket capacity.
 
 ### Manage Events
 
-Organizers can review their published events, follow performance, and open the guest list for any event.
+Organizers can review published events, follow performance, and open the attendee list for an event.
 
 ### Attendees
 
 Confirmed guests are shown with their name, email, ticket count, and booking status.
 
-## Responsive By Default
+## Navigation
 
-The interface is designed for compact mobile screens as well as wide desktop displays. Navigation becomes a mobile menu, content grids stack naturally, forms remain comfortable to use, and long event information stays readable.
-
-## Visual Language
-
-Evently uses a calm slate foundation, confident indigo actions, clear status colors, generous spacing, and focused cards that help users scan and act without friction.
-
-## Reliability
-
-Customers and organizers receive clear, consistent messages when an action needs attention or a service is temporarily unavailable. Specific validation feedback remains visible when it helps the user correct a form.# Evently Frontend
-
-## Error Experience
-
-All pages use the shared message catalog in `src/constants/messages.js`. Login, registration, event discovery, event details, bookings, event creation, organizer dashboards, and attendee views therefore present consistent fallback errors while still showing useful API validation messages when the server provides them.
-
-The frontend is the responsive React experience for discovering events, booking tickets, and managing an organizer workspace.
-
-## Product Preview
-
-### Customer experience
-
-Browse a focused event discovery page, filter by category, search by name, inspect event details, choose ticket quantity, and review bookings from a personal ticket view.
-
-### Organizer experience
-
-Create events through a structured form, monitor event totals and revenue, manage published events, and inspect confirmed attendees from a dedicated workspace.
+The frontend includes public home, login, and registration views, customer dashboard and booking views, event details, and protected organizer routes for dashboards, event creation, event management, and attendees.
 
 ## Responsive Design
 
-The application is built to remain usable from compact mobile screens through wide desktop displays. Navigation collapses into a mobile menu, content grids reduce their column count, forms stack where needed, and booking or attendee data stays readable without forced page-wide scrolling.
+The interface adapts across mobile, tablet, and desktop screens. Navigation becomes a mobile menu, grids stack naturally, forms remain comfortable to use, and long event information stays readable.
 
-## Interface Areas
+## Interface Style
 
-| Area | Purpose |
-| --- | --- |
-| Customer dashboard | Discover, search, and filter events |
-| Event details | Understand an event and reserve tickets |
-| My bookings | Review booking status, dates, locations, and totals |
-| Organizer dashboard | Track events, tickets, revenue, and fill rate |
-| Create event | Publish new event information and inventory |
-| Attendees | View confirmed guests for an organizer event |
-
-## Frontend Stack
-
-React 19 and Vite provide the application runtime. Tailwind CSS supplies the responsive visual system, React Router manages navigation, Zustand stores authentication state, Axios handles API requests, and Lucide provides interface icons.
-
-## Application Structure
-
-- `src/pages/` contains route-level customer, organizer, and authentication views.
-- `src/components/` contains shared navigation, footer, cards, forms, and booking surfaces.
-- `src/services/` contains API request modules.
-- `src/store/` contains client-side authentication state.
-- `src/context/` contains the organizer theme context.
-
-## Configuration
-
-Provide the backend API base URL through the frontend environment configuration before starting the app. The frontend is intended to run alongside the Evently backend during development.# Evently Frontend
-
-React/Vite frontend for the Evently multi-vendor event and ticket booking portal.
-
-## Features
-
-- Customer event discovery with category/search filters and remaining ticket counts.
-- Customer booking flow with quantity controls, total cost calculation, sold-out handling, and booking history.
-- Organizer dashboard with event creation, ticket/revenue summaries, and attendee lists.
-- JWT session persistence, role-based protected routes, loading states, and toast error feedback.
-
-## Setup
-
-```bash
-npm install
-```
-
-Copy `.env.example` to `.env`:
-
-```env
-VITE_API_URL=http://localhost:5000/api
-```
-
-Never commit `.env`; only `VITE_*` values are exposed to the browser.
-
-Start development mode:
-
-```bash
-npm run dev
-```
-
-Run production checks:
-
-```bash
-npm run lint
-npm run build
-```
-
-## Frontend validation
-
-The shared validation module checks registration, login, event text lengths, allowed categories, future dates, non-negative prices, integer capacities, and bounded values before API calls. Browser `required`, `min`, `max`, `step`, `minLength`, and `maxLength` attributes provide an additional form-layer guard.
-
-The backend remains authoritative. API errors such as invalid credentials, sold-out events, stale inventory, duplicate bookings, and expired sessions are shown as toast messages.
-
-## Routes
-
-- `/` public landing page
-- `/login` and `/register` authentication
-- `/customer/dashboard` and `/customer/my-bookings` customer workflow
-- `/events/:id` event details and booking
-- `/organizer/dashboard`, `/organizer/events`, `/organizer/events/new`, and `/organizer/attendees` organizer workflow
-
-## Deployment
-
-Deploy this directory to Vercel, Netlify, or another static host. Set `VITE_API_URL` to the deployed backend API base URL, including `/api`, before building. Configure backend `FRONTEND_URL` to the deployed frontend origin. `vercel.json` and `public/_redirects` preserve React Router deep links on Vercel and Netlify.
-
-## Assessment verification checklist
-
-1. Test both customer and organizer registration/login flows.
-2. Test search, category filtering, event details, booking totals, sold-out behavior, and booking history.
-3. Test organizer event validation, sales summaries, attendee access restrictions, and role protection.
-4. Confirm unauthenticated users are redirected and cross-role routes are blocked.#   e v e n t s _ f r o n t e n d _ a p i r o 
- 
- 
+Evently uses a calm slate foundation, indigo actions, clear status colors, generous spacing, focused cards, and consistent error feedback to keep repeated workflows easy to scan.

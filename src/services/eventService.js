@@ -1,5 +1,4 @@
-
-import api from "./api";
+import api from "../api/api";
 
 export const getEvents = async (params = {}) => {
   const response = await api.get("/events", {
