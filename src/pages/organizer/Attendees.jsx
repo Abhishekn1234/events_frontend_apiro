@@ -78,7 +78,7 @@ export default function Attendees() {
             onChange={(event) =>
               setSearchParams({ event: event.target.value })
             }
-            className="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm font-bold text-slate-700 outline-none focus:border-indigo-500"
+            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm font-bold text-slate-700 outline-none focus:border-indigo-500 sm:w-auto sm:max-w-xs"
           >
             {events.map((event) => (
               <option key={event._id} value={event._id}>

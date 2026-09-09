@@ -58,14 +58,14 @@ export default function CustomerDashboard() {
     <div className="min-h-screen bg-slate-50">
       <section className="relative overflow-hidden bg-slate-950">
         <div className="absolute inset-0 bg-linear-to-br from-indigo-950 via-slate-950 to-violet-950" />
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
           <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-indigo-200">
               <Ticket size={16} />
               Discover amazing experiences
             </div>
             
-            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
               Find your next{" "}
               <span className="block text-indigo-400">unforgettable event.</span>
             </h1>
@@ -75,7 +75,7 @@ export default function CustomerDashboard() {
               experiences happening around you.
             </p>
             
-            <div className="mt-12 grid max-w-xl grid-cols-3 gap-6">
+            <div className="mt-10 grid max-w-xl grid-cols-3 gap-3 sm:mt-12 sm:gap-6">
               <HeroStat value={loading ? "-" : events.length} label="Events" />
               <HeroStat value="5" label="Categories" />
               <HeroStat value="24/7" label="Booking" />

@@ -109,7 +109,7 @@ export function PageHeader({ eyebrow, title, description, action }) {
           </p>
         )}
       </div>
-      {action}
+      {action && <div className="w-full shrink-0 sm:w-auto">{action}</div>}
     </div>
   );
 }

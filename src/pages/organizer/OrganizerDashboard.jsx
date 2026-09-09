@@ -133,7 +133,7 @@ export default function OrganizerDashboard() {
               />
             </div>
 
-            <div className="mt-10 flex items-center justify-between">
+            <div className="mt-10 flex flex-wrap items-end justify-between gap-3">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">
                   Your calendar

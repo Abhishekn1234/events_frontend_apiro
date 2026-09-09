@@ -77,13 +77,13 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-18 items-center justify-between">
-          <Link to="/" className="flex items-center gap-3" onClick={closeMenu}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex min-h-18 items-center justify-between gap-2 py-2">
+          <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-3" onClick={closeMenu}>
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm sm:h-10 sm:w-10">
               <CalendarDays size={21} />
             </span>
-            <span className="text-xl font-black tracking-tight text-slate-950">
+            <span className="truncate text-lg font-black tracking-tight text-slate-950 sm:text-xl">
               Evently
             </span>
           </Link>
@@ -111,8 +111,8 @@ export default function Navbar() {
             )}
           </nav>
 
-          <div className="flex items-center gap-2">
-            {isOrganizer && <ThemeToggle />}
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+            {isOrganizer && <div className="hidden sm:block"><ThemeToggle /></div>}
             {isCustomer && (searchOpen ? (
               <form
                 onSubmit={handleSearch}
@@ -126,7 +126,7 @@ export default function Navbar() {
                   aria-label="Search events"
                   maxLength={100}
                   autoFocus
-                  className="w-28 bg-transparent px-2 py-2 text-sm text-slate-900 outline-none placeholder:text-slate-400 sm:w-44"
+                  className="w-24 min-w-0 bg-transparent px-2 py-2 text-sm text-slate-900 outline-none placeholder:text-slate-400 sm:w-44"
                 />
                 {search && (
                   <button
@@ -186,7 +186,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/register"
-                  className="rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-indigo-700"
+                  className="rounded-lg bg-indigo-600 px-3 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-indigo-700 sm:px-4"
                 >
                   Get started
                 </Link>
@@ -233,6 +233,11 @@ export default function Navbar() {
               >
                 My events
               </NavLink>
+            )}
+            {isOrganizer && (
+              <div className="mt-2 border-t border-slate-100 pt-3 sm:hidden">
+                <ThemeToggle />
+              </div>
             )}
             {isAuthenticated && (
               <button
